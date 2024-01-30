@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import Nav from './components/nav'
+import Nav from './components/Nav'
+
 import Gettasks from './components/Gettasks'
 import ImageContainer from './components/ImageContainer'
 
