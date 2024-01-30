@@ -90,3 +90,4 @@ In the future I would like to make the following improvements:
 - Security - although I can't see any immediate security threats it's important to keep aware, especially if we have user data.
 - Incorporating local storage - If we could save results for the in local storage this may be helpful in order to see historical data.
 - Although the app is responsive I can definitely improve the over-all look.
+- General clean-up and re-factor. Due to time constraints this code isn't as clean as i'd like it and given time I could re-factor things to work better.
