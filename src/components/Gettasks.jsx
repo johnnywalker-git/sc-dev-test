@@ -7,6 +7,8 @@ import getTaskDates from "../utilities/API/getTaskDates"
 const Gettasks = () => {
     const [idInput, setIdInput] = useState("")
     const [allTasks, setAllTasks] = useState([])
+    const [taskDates, setTaskDates] = useState([])
+    const [taskSum, setTaskSum] = useState(0)
 
     function handleInput(e) {
         e.preventDefault()
@@ -23,22 +25,34 @@ const Gettasks = () => {
             })
             const taskDetails = await Promise.all(taskDetailsPromises)
             setAllTasks(taskDetails)
-            addTaskCost(taskDetails)
-            getTaskDates(taskDetails)
+            const taskTotal = addTaskCost(taskDetails)
+            setTaskSum(taskTotal.cost)
+            const returnedTaskDates = getTaskDates(taskDetails)
+            setTaskDates(returnedTaskDates)
+
             } catch (error) {
                 throw error
             }
          }
          handleSubmit()
     }, [])
+    console.log(taskSum)
 
-
-
-    return <div className="flex bg-blue-600 justify-center">
-        <form>
+    return <div>
+        <form className="flex bg-blue-600 justify-center">
             <input type="text" onChange={(e) => {handleInput(e)}} value={idInput} required/>
             <button action="submit" className="button-38 h-5 text-center">Submit</button>
         </form>
+        <div>
+        <ul>
+            {
+            taskDates && taskDates.map((task) => {
+                return <li>{task}</li>
+            })
+            }
+        </ul>
+        </div>
+        <h1>Total: {taskSum}</h1>
     </div>
 }
 

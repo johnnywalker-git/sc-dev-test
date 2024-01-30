@@ -6,6 +6,7 @@ function getTaskDates(arrayOfTasks) {
         } 
     })
     console.log(dates)
+    return dates;
 }
 
 export default getTaskDates;
