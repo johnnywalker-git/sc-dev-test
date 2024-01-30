@@ -5,7 +5,6 @@ function getTaskDates(arrayOfTasks) {
             dates.push(task.data[1].value)
         } 
     })
-    console.log(dates)
     return dates;
 }
 
